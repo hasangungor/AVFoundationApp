@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AVFoundationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commercial Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWM-Mi-Iny">
+                                <rect key="frame" x="20" y="123.99999999999999" width="350" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkx-aG-bpg">
+                                <rect key="frame" x="0.0" y="180.33333333333337" width="390" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="pcx-v6-3Dr"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-CM-U3D">
+                                <rect key="frame" x="48" y="436.33333333333331" width="294" height="138.99999999999994"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsQ-Uq-mJ2">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Play"/>
+                                        <connections>
+                                            <action selector="playPauseCommercialVideo" destination="BYZ-38-t0r" eventType="touchUpInside" id="97F-Th-r5A"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQn-Xv-UIM">
+                                        <rect key="frame" x="0.0" y="108.00000000000006" width="294" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Open Video Player"/>
+                                        <connections>
+                                            <action selector="presentCommercialVideoOnPlayerController" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yqr-PG-mwN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F7-Ef-I31">
+                                <rect key="frame" x="108" y="672" width="176" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Play at specific time"/>
+                                <connections>
+                                    <action selector="seekTime" destination="BYZ-38-t0r" eventType="touchUpInside" id="PXB-PH-NWC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YWM-Mi-Iny" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="JAf-t4-Ikf"/>
+                            <constraint firstItem="Ye9-CM-U3D" firstAttribute="top" secondItem="zkx-aG-bpg" secondAttribute="bottom" constant="36" id="RcQ-Sb-77w"/>
+                            <constraint firstItem="zkx-aG-bpg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V5z-Fy-5pV"/>
+                            <constraint firstItem="YWM-Mi-Iny" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WgJ-lC-iWk"/>
+                            <constraint firstItem="Ye9-CM-U3D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="fFD-sm-UoM"/>
+                            <constraint firstItem="zkx-aG-bpg" firstAttribute="top" secondItem="YWM-Mi-Iny" secondAttribute="bottom" constant="36" id="gYu-Zm-led"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YWM-Mi-Iny" secondAttribute="trailing" constant="20" id="i98-hy-LJl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ye9-CM-U3D" secondAttribute="trailing" constant="48" id="unv-Lq-zLF"/>
+                            <constraint firstItem="zkx-aG-bpg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ybp-by-ywp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="lsQ-Uq-mJ2" id="P5P-nt-DkI"/>
+                        <outlet property="videoContentView" destination="zkx-aG-bpg" id="2cj-EP-dyF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.38461538461539" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
