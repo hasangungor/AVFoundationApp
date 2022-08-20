@@ -16,13 +16,13 @@ class MoviePlayerViewController: UIViewController {
     @IBOutlet var forwardButton: UIButton!
     @IBOutlet var videoContentView: UIView!
     
-    var asset: AVAsset!
-    var playerItem: AVPlayerItem!
-    var player: AVPlayer!
-    var playerLayer: AVPlayerLayer!
-    var timeObserverToken: Any?
-    fileprivate let seekDuration: Float64 = 5 // seconds
-
+    private var asset: AVAsset!
+    private var playerItem: AVPlayerItem!
+    private var player: AVPlayer!
+    private var playerLayer: AVPlayerLayer!
+    private var timeObserverToken: Any?
+    private let seekDuration: Float64 = 5 // seconds
+    private let kTimescale: CMTimeScale = 12800
     
     func addPeriodicTimeObserver() {
         // Notify every half second
@@ -115,7 +115,7 @@ class MoviePlayerViewController: UIViewController {
     
     private func stopVideo() {
         playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        player.seek(to: CMTime(value: 0, timescale: 600))
+        player.seek(to: CMTime(value: 0, timescale: kTimescale))
     }
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
@@ -126,12 +126,12 @@ class MoviePlayerViewController: UIViewController {
         guard let duration  = player.currentItem?.duration else{
             return
         }
+        
         let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
         let newTime = playerCurrentTime + seekDuration
         
         if newTime < CMTimeGetSeconds(duration) {
-            
-            let time2: CMTime = CMTimeMake(value: Int64(newTime * 12800 as Float64), timescale: 12800)
+            let time2: CMTime = CMTimeMake(value: Int64(newTime * Double(kTimescale)), timescale: kTimescale)
             player.seek(to: time2)
         }
     }
@@ -139,11 +139,12 @@ class MoviePlayerViewController: UIViewController {
     @IBAction func backwardButtonTapped(_ sender: UIButton) {
         let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
         var newTime = playerCurrentTime - seekDuration
-        
+
         if newTime < 0 {
             newTime = 0
         }
-        let time2: CMTime = CMTimeMake(value: Int64(newTime * 12800 as Float64), timescale: 12800)
+        
+        let time2: CMTime = CMTimeMake(value: Int64(newTime * Double(kTimescale)), timescale: kTimescale)
         player.seek(to: time2)
     }
 }
