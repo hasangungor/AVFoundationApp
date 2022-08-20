@@ -19,12 +19,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureVideoPlayer()
-        
-        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-            debugPrint("video  not found")
-            return
-        }
+        configureVideoPlayer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +35,6 @@ class ViewController: UIViewController {
             return
         }
         myPlayer = AVPlayer(url: URL(fileURLWithPath: path))
-//        myPlayer.isMuted = true
         let playerLayer = AVPlayerLayer(player: myPlayer)
         playerLayer.frame = videoContentView.bounds
         videoContentView.layer.addSublayer(playerLayer)
@@ -58,22 +52,33 @@ class ViewController: UIViewController {
     func playPause() {
         switch myPlayer.timeControlStatus {
         case .playing:
-            myPlayer.pause()
-            playPauseButton.setTitle("Play", for: .normal)
+            pause()
         case .paused:
-            myPlayer.play()
-            playPauseButton.setTitle("Pause", for: .normal)
+           play()
         default:
             break
         }
     }
     
+    private func play() {
+        myPlayer.play()
+        playPauseButton.setTitle("Pause", for: .normal)
+    }
+    
+    private func pause() {
+        myPlayer.pause()
+        playPauseButton.setTitle("Play", for: .normal)
+    }
+    
     @IBAction func presentCommercialVideoOnPlayerController() {
+        
         guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
             debugPrint("video  not found")
             return
         }
-        playPause()
+        
+        pause()
+        
         let playerController = AVPlayerViewController()
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         playerController.player = player
