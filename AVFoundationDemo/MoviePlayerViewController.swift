@@ -21,7 +21,7 @@ class MoviePlayerViewController: UIViewController {
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var timeObserverToken: Any?
-    fileprivate let seekDuration: Float64 = 10
+    fileprivate let seekDuration: Float64 = 5 // seconds
 
     
     func addPeriodicTimeObserver() {
@@ -131,7 +131,7 @@ class MoviePlayerViewController: UIViewController {
         
         if newTime < CMTimeGetSeconds(duration) {
             
-            let time2: CMTime = CMTimeMake(value: Int64(newTime * 600 as Float64), timescale: 600)
+            let time2: CMTime = CMTimeMake(value: Int64(newTime * 12800 as Float64), timescale: 12800)
             player.seek(to: time2)
         }
     }
@@ -143,7 +143,7 @@ class MoviePlayerViewController: UIViewController {
         if newTime < 0 {
             newTime = 0
         }
-        let time2: CMTime = CMTimeMake(value: Int64(newTime * 600 as Float64), timescale: 600)
+        let time2: CMTime = CMTimeMake(value: Int64(newTime * 12800 as Float64), timescale: 12800)
         player.seek(to: time2)
     }
 }

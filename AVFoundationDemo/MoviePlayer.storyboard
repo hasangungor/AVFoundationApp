@@ -48,20 +48,20 @@
                                 <rect key="frame" x="68" y="349" width="804" height="44"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="vBE-lV-0wU">
-                                        <rect key="frame" x="226" y="6.5" width="352" height="31"/>
+                                        <rect key="frame" x="277.5" y="6.5" width="249" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usS-Ng-Pne">
-                                                <rect key="frame" x="0.0" y="0.0" width="102" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="31"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system" title="10 Sec" imagePadding="8"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system" imagePadding="8"/>
                                                 <connections>
                                                     <action selector="backwardButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="M0w-yJ-1V2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eO-l4-CPr">
-                                                <rect key="frame" x="156" y="0.0" width="40" height="31"/>
+                                                <rect key="frame" x="104.5" y="0.0" width="40" height="31"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
@@ -70,11 +70,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB7-We-Vei">
-                                                <rect key="frame" x="250" y="0.0" width="102" height="31"/>
+                                                <rect key="frame" x="198.5" y="0.0" width="50.5" height="31"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system" title="10 Sec" imagePadding="8"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system" imagePadding="8"/>
                                                 <connections>
                                                     <action selector="forwardButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SWe-e3-CeT"/>
                                                 </connections>
