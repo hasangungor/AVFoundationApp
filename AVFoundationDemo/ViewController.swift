@@ -44,11 +44,6 @@ class ViewController: UIViewController {
         playPause()
     }
     
-    @IBAction func seekTime() {
-        myPlayer.seek(to: CMTimeMake(value: 100, timescale: 1))
-//        myPlayer.currentItem?.forwardPlaybackEndTime = CMTimeMake(value: 100, timescale: 1)
-    }
-    
     func playPause() {
         switch myPlayer.timeControlStatus {
         case .playing:

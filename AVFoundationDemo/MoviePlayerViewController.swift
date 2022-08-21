@@ -23,6 +23,7 @@ class MoviePlayerViewController: UIViewController {
     private var timeObserverToken: Any?
     private let seekDuration: Float64 = 5 // seconds
     private let kTimescale: CMTimeScale = 12800
+    var thumbnailImage: UIImage?
     
     func addPeriodicTimeObserver() {
         // Notify every half second
@@ -88,7 +89,6 @@ class MoviePlayerViewController: UIViewController {
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoContentView.bounds
-        
         videoContentView.layer.addSublayer(playerLayer)
     }
     
@@ -146,5 +146,24 @@ class MoviePlayerViewController: UIViewController {
         
         let time2: CMTime = CMTimeMake(value: Int64(newTime * Double(kTimescale)), timescale: kTimescale)
         player.seek(to: time2)
+    }
+    
+    
+    func generateThumbnailImage() {
+        let assetGenerator = AVAssetImageGenerator(asset: asset)
+        print(assetGenerator)
+        do {
+            let time = CMTimeMake(value: Int64(10 * Double(kTimescale)), timescale: kTimescale)
+            let cgImage = try assetGenerator.copyCGImage(at: time, actualTime: nil)
+            thumbnailImage = UIImage(cgImage: cgImage)
+        } catch (let err) {
+            print(err.localizedDescription)
+        }
+    }
+    
+    @IBAction func sliderChange(_ sender: UISlider) {
+        let videoTotalSeconds = self.asset.duration.seconds
+        let timeToSeek = videoTotalSeconds * Double(sender.value)
+        player.seek(to: CMTimeMake(value: Int64(timeToSeek * Double(kTimescale)), timescale: kTimescale))
     }
 }

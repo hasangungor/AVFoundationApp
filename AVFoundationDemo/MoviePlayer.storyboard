@@ -27,6 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aQj-yz-QpR"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderChange:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Fi6-1K-iwf"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs3-OC-o9g">
                                 <rect key="frame" x="824" y="24" width="48" height="48"/>
